@@ -31,4 +31,10 @@ public class TestBankAccount {
         assertEquals(50, account1.getBalance());
         assertEquals(150, account2.getBalance());
     }
+
+    @Test
+    public void shouldThrowExceptionForNegativeAmount() {
+        BankAccount account = new BankAccount(100);
+        assertThrows(IllegalArgumentException.class, () -> account.withdraw(-50));
+    }
 }
